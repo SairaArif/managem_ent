@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @doctor.name %>
+</p>
+
+<p>
+  <b>Qualification:</b>
+  <%= @doctor.qualification %>
+</p>
+
+<p>
+  <b>Specialist:</b>
+  <%= @doctor.specialist %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>
+<%= render "patients/new_patient_form" %>
+
+
+   <% @patients.each do |patient| %>
+     <p>
+       <span><%= patient.created_at %> </span>
+     </p>     
+       
+     <% end %>
