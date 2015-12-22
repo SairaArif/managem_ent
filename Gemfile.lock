@@ -42,7 +42,7 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     journey (1.0.4)
-    jquery-rails (3.1.4)
+    jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
@@ -52,6 +52,7 @@ GEM
     mime-types (1.25.1)
     multi_json (1.11.2)
     mysql2 (0.3.20)
+    pg (0.18.4)
     polyglot (0.3.5)
     rack (1.4.7)
     rack-cache (1.5.1)
@@ -68,6 +69,11 @@ GEM
       activesupport (= 3.2.18)
       bundler (~> 1.0)
       railties (= 3.2.18)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (3.2.18)
       actionpack (= 3.2.18)
       activesupport (= 3.2.18)
@@ -103,9 +109,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
-  jquery-rails
+  jquery-rails (~> 2.3.0)
   mysql2 (~> 0.3.10)
+  pg
   rails (= 3.2.18)
+  rails_12factor
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
 
