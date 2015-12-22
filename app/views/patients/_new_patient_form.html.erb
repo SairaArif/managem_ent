@@ -1,9 +1,22 @@
 <%= form_for [@doctor, @patient] do |f| %>
-   <div class="fields">
-     <%= f.label :patient %>
-    
-   </div>
 
-  <div class="ations">
+    <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :disease %><br />
+    <%= f.text_area :disease %>
+  </div>
+  <div class="actions">
     <%= f.submit %>
+  </div>
 <% end %>

@@ -1,6 +1,6 @@
 ManagemEnt::Application.routes.draw do
   
-
+   root to: "doctors#index"
   resources :doctors do 
     resources :patients
   end 
