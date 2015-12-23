@@ -18,6 +18,7 @@
     <td><%= link_to 'Show', doctor %></td>
     <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
     <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'add patient',new_doctor_patient_path(doctor.id) %></td>
   </tr>
 <% end %>
 </table>
@@ -25,3 +26,4 @@
 <br />
 
 <%= link_to 'New Doctor', new_doctor_path %>
+

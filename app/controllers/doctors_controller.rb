@@ -1,6 +1,7 @@
 class DoctorsController < ApplicationController
   
   before_filter :set_doctor, except: [:index, :new, :create]
+ 
   respond_to :html
   # GET /doctors
   # GET /doctors.json
@@ -35,7 +36,7 @@ class DoctorsController < ApplicationController
      format.json { render json: @doctor }
     end
   end
-
+ 
   # GET /doctors/1/edit
   def edit
     
@@ -85,8 +86,11 @@ class DoctorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   private
   def set_doctor
     @doctor = Doctor.find(params[:id])
   end
-end
+ 
+end 
+

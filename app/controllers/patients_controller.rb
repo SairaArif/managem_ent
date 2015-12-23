@@ -1,13 +1,13 @@
 class PatientsController < ApplicationController 
   before_filter :set_patient, only: [:show, :edit, :update, :destroy]
-  before_filter :set_doctor, only: [:create]
+  before_filter :set_doctor, only: [:new, :create]
   respond_to :html
 
  
   def index
     @patients = Patient.all
 
-    respond_with(@patient)
+   respond_with(@patient)
   end
 
   # GET /patients/1
@@ -35,7 +35,7 @@ class PatientsController < ApplicationController
     @patient = @doctor.patients.new(params[:patient])
    
     @patient.save
-    redirect_to @doctor
+    redirect_to new_doctor_patient_path
      
   end
 
