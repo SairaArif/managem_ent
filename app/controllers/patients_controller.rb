@@ -13,16 +13,24 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+    @patient = Patient.new
+    @patients = @doctor.patients 
+   
     respond_with(@patient)
   end
 
   # GET /patients/new
   # GET /patients/new.json
   def new
-    @patient = Patient.new
+     @patient = Patient.new
+    @patient.attachments.new
 
-    respond_with(@patient)
+    respond_to do |format|
+     format.html # new.html.erb
+     format.json { render json: @patient }
+    end
   end
+
 
   # GET /patients/1/edit
   def edit

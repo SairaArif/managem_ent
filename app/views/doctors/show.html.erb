@@ -5,6 +5,10 @@
   <%= @doctor.name %>
 </p>
 
+ <p>
+    <%= image_tag @doctor.attachments.first.photo.url(:medium) if @doctor.attachments.present? %>
+ </p>
+
 <p>
   <b>Qualification:</b>
   <%= @doctor.qualification %>
@@ -20,19 +24,17 @@
 <%= link_to 'Back', doctors_path %>
 
 
-   <% @patients.each do |patient| %>
-     <p>
-       <span><%= patient.created_at %> </span>
-       <span> Patient: </span>
-     </p>     
-       <p>
-         <%= patient.name %>
-          <%= patient.age %>
-           <%= patient.gender %>
-            <%= patient.disease %>
-            
-             
-       </p>
-
-     <% end %>
+ 
       
+<% @doctor.patients.each do |patient| %>
+   
+    <p>
+     <span> <b> patient:</b></span>
+     <%= patient.name %>
+     <%= patient.age %>
+     <%= patient.gender %>
+     <%= patient.disease %> 
+    </p>
+     <%= image_tag patient.attachments.first.photo.url(:thumb) if patient.attachments.present? %>
+    <% end %>
+</p>

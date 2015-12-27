@@ -23,6 +23,11 @@
     <%= f.label :specialist %><br />
     <%= f.text_field :specialist %>
   </div>
+  <div class="field">
+    <%= f.fields_for :attachments do |photo| %>
+      <%= photo.file_field :photo %>
+     <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
