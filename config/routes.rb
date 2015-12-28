@@ -1,5 +1,7 @@
 ManagemEnt::Application.routes.draw do
   
+  devise_for :users
+
    root to: "doctors#index"
   resources :doctors do 
     resources :patients

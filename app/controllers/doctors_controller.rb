@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+  before_filter :authenticate_user!
   
   before_filter :set_doctor, except: [:index, :new, :create]
  

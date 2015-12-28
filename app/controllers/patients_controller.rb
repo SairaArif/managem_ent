@@ -8,6 +8,7 @@ class PatientsController < ApplicationController
     @patients = Patient.all
 
    respond_with(@patient)
+   
   end
 
   # GET /patients/1
