@@ -25,7 +25,7 @@
 
 
  
-      
+<%= @doctor.patients.count %>      
 <% @doctor.patients.each do |patient| %>
    
     <p>
@@ -36,5 +36,5 @@
      <%= patient.disease %> 
     </p>
      <%= image_tag patient.attachments.first.photo.url(:thumb) if patient.attachments.present? %>
-    <% end %>
+<% end %>
 </p>

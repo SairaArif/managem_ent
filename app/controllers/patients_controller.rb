@@ -42,9 +42,9 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = @doctor.patients.new(params[:patient])
-   
-    @patient.save
-    redirect_to new_doctor_patient_path
+
+    @doctor.save
+    redirect_to doctor_path(@doctor)
      
   end
 

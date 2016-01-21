@@ -1,12 +1,18 @@
 ManagemEnt::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users 
 
+  resources :users do
+    resources :doctors do 
+     resources :patients
+    end 
+  end
+   
    root to: "doctors#index"
+  
   resources :doctors do 
     resources :patients
   end 
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

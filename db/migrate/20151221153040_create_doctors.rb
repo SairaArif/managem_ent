@@ -4,8 +4,10 @@ class CreateDoctors < ActiveRecord::Migration
       t.string :name
       t.text :qualification
       t.string :specialist
+     
 
-      t.timestamps
+      t.references :user, index: true, foreign_key: true
+      t.timestamps 
     end
   end
 end

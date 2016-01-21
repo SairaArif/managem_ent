@@ -1,15 +1,23 @@
 class DoctorsController < ApplicationController
-  before_filter :authenticate_user!
-  
+  before_filter :authenticate_user! #, except: [ :index]
   before_filter :set_doctor, except: [:index, :new, :create]
+
  
   respond_to :html
   # GET /doctors
   # GET /doctors.json
   def index
-    @doctors = Doctor.all
-    
-    respond_to do |format|
+   
+    @doctor = current_user.doctors.new(params[:doctor])
+    #@doctors = User.find(params[:user_id]).doctors #Doctor.all
+     
+    if params[:search]
+      @doctors = Doctor.search params[:search]
+    else
+     @doctors = params[:user_id].present? ? User.find(params[:user_id]).doctors : Doctor.all
+  end
+
+     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @doctors }
     end
@@ -20,7 +28,7 @@ class DoctorsController < ApplicationController
   def show
     @patient = Patient.new
     @patients = @doctor.patients 
-   
+
     respond_to do |format|
      format.html # show.html.erb
      format.json { render json: @doctor }
@@ -31,6 +39,7 @@ class DoctorsController < ApplicationController
   # GET /doctors/new.json
   def new
     @doctor = Doctor.new
+    
     @doctor.attachments.new
 
     respond_to do |format|
@@ -48,7 +57,7 @@ class DoctorsController < ApplicationController
   # POST /doctors.json
   def create
 
-    @doctor = Doctor.new(params[:doctor])
+    @doctor = current_user.doctors.new(params[:doctor])
 
     respond_to do |format|
       if @doctor.save
